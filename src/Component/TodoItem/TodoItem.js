@@ -1,9 +1,12 @@
-import React from 'react'
+import React from 'react';
+import '../../App.css'
 
-export default function TodoItem() {
+
+export default function TodoItem({id,name,doneHandler,cancleHandler}) {
     return (
-        <div>
-            <h1>Fisrt Todo App</h1>
+        <div id={id} className="singleTodoItem">
+            <li key={id} className="todoItemtext">{name}</li>
+            <button className="doneBtn" onClick={doneHandler}>Done</button>
         </div>
     )
 }
