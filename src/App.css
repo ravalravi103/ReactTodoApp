@@ -57,8 +57,8 @@ ul{
 }
 
 .singleTodoItem {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
   margin-top: 1rem;
 }
 
@@ -72,6 +72,10 @@ ul{
   padding: 1rem 3rem;
   background-color: green;
   color: #fff;
+}
+
+.cencleText{
+  text-decoration: line-through;
 }
 
 

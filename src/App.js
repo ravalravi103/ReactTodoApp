@@ -5,6 +5,7 @@ import "./App.css";
 class App extends Component {
   state = {
     todoName: '',
+    cancle: false,
     todoArray: []
   }
 
@@ -38,6 +39,15 @@ class App extends Component {
     })
   }
 
+
+  cancleHandler = (e) => {
+    console.log('cancleBtn clicked ')
+      this.setState({
+        cancle : !this.state.cancle
+      })  
+  }
+
+
   render() {
     return (
       <div className="app">
@@ -47,13 +57,15 @@ class App extends Component {
             <button className="todoAddBtn" onClick={this.addTodoHandler}>Add Todo</button>
           </div>
           <div className="body">
-            <ul >
+            <ul>
               {this.state.todoArray.map((item, index) => {
                 return (
                   <TodoItem
-                    id={`${index}`}
+                    id={index}
                     name={item}
+                    doneClass={this.state.cancle}
                     doneHandler={this.doneHandler}
+                    cancleHandler={this.cancleHandler}
                   />)
               })}
             </ul>
