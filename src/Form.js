@@ -8,7 +8,7 @@ function Form({ inputText,setInputText,todos,setTodos}) {
 
     const submitTodoHnadler = (e) => {
          setTodos([
-             ...todos,{text:inputText,completed: false,id: Math.random()*1000}
+             ...todos,{text:inputText,completed: false, check : false,id: Math.random()*1000}
             ])
         setInputText('');
     }

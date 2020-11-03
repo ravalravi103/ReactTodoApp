@@ -8,24 +8,28 @@ function Todo({text,todo,todos,setTodos}) {
        setTodos(todos.filter(el => el.id !== todo.id));
      }
 
+     
+     // DoneHandler
      const doneHandler = () => {
-         setTodos(todos.map((item)=>{
-             if(item.id === todo.id){
-                 return {
-                     ...item, completed : !item.completed
-                 }
-             }
-             return item
-         }))
+         setTodos(todos.map(item =>item.id === todo.id ?
+            {...item, completed : !item.completed} : item
+         ))
+     }
+
+     // check Handler
+     const checkHandler = (e) => {  
+         setTodos(todos.map(item => item.id === todo.id? {
+            ...item,check: !item.check
+        } : item))
      }
 
     return (
         <div className="todo">
              <div className="todo-sub">
-                <input type="checkbox" onChange={doneHandler} className="done-checkbox"/>
+                <input type="checkbox" onChange={checkHandler} className="done-checkbox"/>
                <li className={(todo.completed)? "todo-item completed": "todo-item"}>{text}</li>
              </div>
-            {/* <button className="done-btn" onClick={doneHandler}>Done</button> */}
+              <button className="done-btn" onClick={doneHandler}>Done</button>
               <button className="remove-btn" onClick={removeHandler}>Remove</button>
         </div>
     )

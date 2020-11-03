@@ -53,8 +53,41 @@ body{
   background-color: hotpink;
   padding: 10px 30px;
 }
+.done-btn{
+  background-color: hotpink;
+  padding: 10px 30px;
+}
+.done-checkbox{
+  height: 20px;
+  width: 21px;
+  margin-top: 18px;
+}
 .completed{
   border: 5px solid red;
   padding: 10px;
   text-decoration: line-through;
+}
+
+.handle-multiple{
+  display: grid;
+  /* background-color: chartreuse; */
+  grid-template-columns: 1fr 1fr;
+  margin-bottom: 20px;
+}
+
+.done-multiple{
+  margin-right: 70px;
+  background-color: chocolate;
+  padding: 10px 30px;
+  color: #fff;
+  font-size: 18px;
+  border-radius: 30px;
+}
+
+.remove-multiple{
+  background-color: darkgoldenrod;
+  padding: 10px 30px;
+  color: #fff;
+  font-size: 18px;
+  border-radius: 30px;
 }
