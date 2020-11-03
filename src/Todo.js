@@ -19,13 +19,29 @@ function Todo({text,todo,todos,setTodos}) {
          }))
      }
 
+
+     // check Handler
+     const checkHandler = (e) => {  
+         console.log(todo.id)
+           setTodos(todos.map(item =>{
+                 if(item.id === todo.id){
+                     return {
+                         ...item,check: !item.check
+                     }
+                 }
+                 return item
+           })
+           
+           )
+     }
+
     return (
         <div className="todo">
              <div className="todo-sub">
-                <input type="checkbox" onChange={doneHandler} className="done-checkbox"/>
+                <input type="checkbox" onChange={checkHandler} className="done-checkbox"/>
                <li className={(todo.completed)? "todo-item completed": "todo-item"}>{text}</li>
              </div>
-            {/* <button className="done-btn" onClick={doneHandler}>Done</button> */}
+              <button className="done-btn" onClick={doneHandler}>Done</button>
               <button className="remove-btn" onClick={removeHandler}>Remove</button>
         </div>
     )
