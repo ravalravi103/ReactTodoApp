@@ -8,31 +8,19 @@ function Todo({text,todo,todos,setTodos}) {
        setTodos(todos.filter(el => el.id !== todo.id));
      }
 
+     
+     // DoneHandler
      const doneHandler = () => {
-         setTodos(todos.map((item)=>{
-             if(item.id === todo.id){
-                 return {
-                     ...item, completed : !item.completed
-                 }
-             }
-             return item
-         }))
+         setTodos(todos.map(item =>item.id === todo.id ?
+            {...item, completed : !item.completed} : item
+         ))
      }
-
 
      // check Handler
      const checkHandler = (e) => {  
-         console.log(todo.id)
-           setTodos(todos.map(item =>{
-                 if(item.id === todo.id){
-                     return {
-                         ...item,check: !item.check
-                     }
-                 }
-                 return item
-           })
-           
-           )
+         setTodos(todos.map(item => item.id === todo.id? {
+            ...item,check: !item.check
+        } : item))
      }
 
     return (

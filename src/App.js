@@ -10,30 +10,15 @@ function App() {
 
      // Done Multiple
      const doneMultipleHandler = () => {
-         setTodos( todos.map(item => {
-          if(item.check){
-            return ({
-              ...item,completed :!item.completed
-            })
-          }
-          else {
-            return ({
-              ...item, completed : item.completed
-            })
-          }
-          return item 
-       }))
-          console.log(todos)
+         setTodos(todos.map(item => item.check ? 
+          {...item,completed :!item.completed} :
+          {...item, completed : item.completed
+        }))
      }
 
     //  Remove Multiple
      const removeMultipleHandler = () => {
-        console.log(todos)
-         setTodos(todos.filter(item => {
-            if(!item.check){
-              return item
-            }
-        }))   
+         setTodos(todos.filter(item => !item.check ?item: null)) 
      }
 
   return (
